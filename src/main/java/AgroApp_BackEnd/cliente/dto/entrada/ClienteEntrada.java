@@ -1,4 +1,4 @@
-package AgroApp_BackEnd.Cliente.Domain.Entrada;
+package AgroApp_BackEnd.cliente.dto.entrada;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

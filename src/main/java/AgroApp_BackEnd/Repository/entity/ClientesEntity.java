@@ -1,6 +1,6 @@
-package AgroApp_BackEnd.entity;
+package AgroApp_BackEnd.Repository.entity;
 
-import AgroApp_BackEnd.Cliente.Domain.Entrada.ClienteEntrada;
+import AgroApp_BackEnd.cliente.dto.entrada.ClienteEntrada;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

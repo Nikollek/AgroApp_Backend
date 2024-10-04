@@ -1,8 +1,8 @@
-package AgroApp_BackEnd.Cliente.Controller;
+package AgroApp_BackEnd.cliente.controller;
 
-import AgroApp_BackEnd.Repository.ClienteRepository;
-import AgroApp_BackEnd.Cliente.Domain.Entrada.ClienteEntrada;
-import AgroApp_BackEnd.entity.ClientesEntity;
+import AgroApp_BackEnd.cliente.dao.JPAClientesDAO;
+import AgroApp_BackEnd.cliente.dto.entrada.ClienteEntrada;
+import AgroApp_BackEnd.Repository.entity.ClientesEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,23 +11,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/usuarios")
 public class ClienteController {
 
     @Autowired
-    private ClienteRepository repository;
+    private JPAClientesDAO jpaClientesDAO;
 
     @PostMapping("/cadastro")
-    public ResponseEntity<String> cadastroUsuario(@RequestBody ClienteEntrada clienteEntrada){
+    public ResponseEntity<String> cadastroUsuarios(@RequestBody ClienteEntrada clienteEntrada){
 
-        Optional<ClientesEntity> clientes = repository
+        Optional<ClientesEntity> clientes = jpaClientesDAO
                 .findByEmailClienteAndSenhaCliente(clienteEntrada.getEmailUsuario(), clienteEntrada.getSenhaUsuario());
         if(clientes.isPresent()){
             return new ResponseEntity<>("Usuário com este email já existe!", HttpStatus.NOT_ACCEPTABLE);
         }
         ClientesEntity clientesEntity = new ClientesEntity(clienteEntrada);
-        repository.save(clientesEntity);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        jpaClientesDAO.save(clientesEntity);
+        return ResponseEntity.ok().build();
     }
 
 
@@ -35,7 +35,7 @@ public class ClienteController {
     public ResponseEntity loginUsuario(@RequestParam(value = "email") String email,
                                                    @RequestParam(value = "senha") String senha){
 
-       Optional<ClientesEntity> clientesEntity = repository.findByEmailClienteAndSenhaCliente(email, senha);
+       Optional<ClientesEntity> clientesEntity = jpaClientesDAO.findByEmailClienteAndSenhaCliente(email, senha);
 
        if(clientesEntity.isEmpty()){
            return ResponseEntity.notFound().build();

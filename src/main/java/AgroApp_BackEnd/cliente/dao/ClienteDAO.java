@@ -1,11 +1,13 @@
-package AgroApp_BackEnd.Repository;
+package AgroApp_BackEnd.cliente.dao;
 
 import AgroApp_BackEnd.Repository.entity.ClientesEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface ClienteRepository extends JpaRepository <ClientesEntity, Long> {
+public interface ClienteDAO {
+
+    void save(ClientesEntity clientesEntity);
 
     Optional<ClientesEntity> findByEmailClienteAndSenhaCliente(String email, String senha);
+
 }
