@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface FornecedoresPFRepository extends JpaRepository<FornecedoresPFEntity, String> {
 
-    Optional<FornecedoresPFEntity> findByCpf(String cpf);
+    Optional<FornecedoresPFEntity> findByTelefone(String telefone);
 
 }

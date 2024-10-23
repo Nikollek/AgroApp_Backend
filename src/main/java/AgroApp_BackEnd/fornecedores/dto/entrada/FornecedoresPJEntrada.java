@@ -26,4 +26,6 @@ public class FornecedoresPJEntrada {
 
     private String uf;
 
+    private FornecimentoEntrada fornecimento;
+
 }

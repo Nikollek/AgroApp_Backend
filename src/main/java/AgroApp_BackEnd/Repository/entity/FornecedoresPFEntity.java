@@ -18,8 +18,8 @@ import lombok.Setter;
 public class FornecedoresPFEntity {
 
     @Id
-    @Column(name = "cpf")
-    private String cpf;
+    @Column(name = "telefone")
+    private String telefone;
 
     @Column(name = "nome")
     private String nome;
@@ -27,9 +27,13 @@ public class FornecedoresPFEntity {
     @Column(name = "idade")
     private String idade;
 
+    @Column(name = "email")
+    private String email;
+
     public FornecedoresPFEntity(FornecedoresPFEntrada fornecedoresPFEntrada) {
-        this.cpf = fornecedoresPFEntrada.getCpf();
+        this.telefone = fornecedoresPFEntrada.getTelefone();
         this.nome = fornecedoresPFEntrada.getNome();
         this.idade = fornecedoresPFEntrada.getIdade();
+        this.email = fornecedoresPFEntrada.getEmail();
     }
 }

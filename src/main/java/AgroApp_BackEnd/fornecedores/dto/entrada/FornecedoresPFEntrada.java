@@ -8,9 +8,13 @@ import lombok.Setter;
 @Setter
 public class FornecedoresPFEntrada {
 
-    private String cpf;
+    private String telefone;
 
     private String nome;
 
     private String idade;
+
+    private String email;
+
+    private FornecimentoEntrada fornecimento;
 }

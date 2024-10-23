@@ -1,0 +1,304 @@
+{
+  "alimentos": [
+    {
+      "nome": "MILHO",
+      "melhor_regiao": "Centro-Oeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "3 meses"
+    },
+    {
+      "nome": "TRIGO",
+      "melhor_regiao": "Sul",
+      "clima": "Frio",
+      "tempo_finalizacao": "5 meses"
+    },
+    {
+      "nome": "ARROZ",
+      "melhor_regiao": "Vale do Ribeira",
+      "clima": "Tropical",
+      "tempo_finalizacao": "4 meses"
+    },
+    {
+      "nome": "CEVADA",
+      "melhor_regiao": "Sul",
+      "clima": "Frio",
+      "tempo_finalizacao": "4 meses"
+    },
+    {
+      "nome": "AVEIA",
+      "melhor_regiao": "Sul",
+      "clima": "Frio",
+      "tempo_finalizacao": "4 meses"
+    },
+    {
+      "nome": "SORGO",
+      "melhor_regiao": "Centro-Oeste",
+      "clima": "Semiárido",
+      "tempo_finalizacao": "3 meses"
+    },
+    {
+      "nome": "SOJA",
+      "melhor_regiao": "Centro-Oeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "4 meses"
+    },
+    {
+      "nome": "FEIJAO",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "3 meses"
+    },
+    {
+      "nome": "LENTILHA",
+      "melhor_regiao": "Sul",
+      "clima": "Frio",
+      "tempo_finalizacao": "4 meses"
+    },
+    {
+      "nome": "GRAO_DE_BICO",
+      "melhor_regiao": "Nordeste",
+      "clima": "Semiárido",
+      "tempo_finalizacao": "3 meses"
+    },
+    {
+      "nome": "ERVILHA",
+      "melhor_regiao": "Sul",
+      "clima": "Frio",
+      "tempo_finalizacao": "4 meses"
+    },
+    {
+      "nome": "MACA",
+      "melhor_regiao": "Sul",
+      "clima": "Frio",
+      "tempo_finalizacao": "6 meses"
+    },
+    {
+      "nome": "LARANJA",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "9 meses"
+    },
+    {
+      "nome": "BANANA",
+      "melhor_regiao": "Nordeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "12 meses"
+    },
+    {
+      "nome": "UVA",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "4 meses"
+    },
+    {
+      "nome": "ABACAXI",
+      "melhor_regiao": "Nordeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "12 meses"
+    },
+    {
+      "nome": "MANGA",
+      "melhor_regiao": "Nordeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "12 meses"
+    },
+    {
+      "nome": "MORANGO",
+      "melhor_regiao": "Porto Alegre",
+      "clima": "Temperado",
+      "tempo_finalizacao": "4 meses"
+    },
+    {
+      "nome": "ALFACE",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "2 meses"
+    },
+    {
+      "nome": "TOMATE",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "3 meses"
+    },
+    {
+      "nome": "CENOURA",
+      "melhor_regiao": "Sul",
+      "clima": "Frio",
+      "tempo_finalizacao": "3 meses"
+    },
+    {
+      "nome": "BETERRABA",
+      "melhor_regiao": "Sul",
+      "clima": "Frio",
+      "tempo_finalizacao": "3 meses"
+    },
+    {
+      "nome": "BATATA",
+      "melhor_regiao": "Sul",
+      "clima": "Frio",
+      "tempo_finalizacao": "4 meses"
+    },
+    {
+      "nome": "ABOBRINHA",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "3 meses"
+    },
+    {
+      "nome": "PEPINO",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "3 meses"
+    },
+    {
+      "nome": "GIRASSOL",
+      "melhor_regiao": "Centro-Oeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "4 meses"
+    },
+    {
+      "nome": "AMENDOIM",
+      "melhor_regiao": "Nordeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "4 meses"
+    },
+    {
+      "nome": "LINHACA",
+      "melhor_regiao": "Sul",
+      "clima": "Frio",
+      "tempo_finalizacao": "4 meses"
+    },
+    {
+      "nome": "CASTANHA_DO_PARA",
+      "melhor_regiao": "Norte",
+      "clima": "Tropical",
+      "tempo_finalizacao": "5 anos"
+    },
+    {
+      "nome": "NOZES",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "3 anos"
+    },
+    {
+      "nome": "GERGELIM",
+      "melhor_regiao": "Nordeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "4 meses"
+    },
+    {
+      "nome": "BATATA_DOCE",
+      "melhor_regiao": "Norte",
+      "clima": "Tropical",
+      "tempo_finalizacao": "5 meses"
+    },
+    {
+      "nome": "MANDIOCA",
+      "melhor_regiao": "Norte",
+      "clima": "Tropical",
+      "tempo_finalizacao": "6 meses"
+    },
+    {
+      "nome": "INHAME",
+      "melhor_regiao": "Norte",
+      "clima": "Tropical",
+      "tempo_finalizacao": "6 meses"
+    },
+    {
+      "nome": "NABO",
+      "melhor_regiao": "Sul",
+      "clima": "Frio",
+      "tempo_finalizacao": "3 meses"
+    },
+    {
+      "nome": "HORTELA",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "2 meses"
+    },
+    {
+      "nome": "ALECRIM",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "2 meses"
+    },
+    {
+      "nome": "CAMOMILA",
+      "melhor_regiao": "Sul",
+      "clima": "Frio",
+      "tempo_finalizacao": "3 meses"
+    },
+    {
+      "nome": "MANJERICAO",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "2 meses"
+    },
+    {
+      "nome": "ERVA_CIDREIRA",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "2 meses"
+    },
+    {
+      "nome": "ALGODAO",
+      "melhor_regiao": "Centro-Oeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "5 meses"
+    },
+    {
+      "nome": "CANA_DE_ACUCAR",
+      "melhor_regiao": "Centro-Oeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "12 meses"
+    },
+    {
+      "nome": "FUMO",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "7 meses"
+    },
+    {
+      "nome": "CACAU",
+      "melhor_regiao": "Norte",
+      "clima": "Tropical",
+      "tempo_finalizacao": "5 anos"
+    },
+    {
+      "nome": "CAFE",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "12 meses"
+    },
+    {
+      "nome": "ABACATEIRO",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "4 anos"
+    },
+    {
+      "nome": "MANGUEIRA",
+      "melhor_regiao": "Nordeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "5 anos"
+    },
+    {
+      "nome": "CAJUEIRO",
+      "melhor_regiao": "Nordeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "4 anos"
+    },
+    {
+      "nome": "LIMOEIRO",
+      "melhor_regiao": "Sudeste",
+      "clima": "Tropical",
+      "tempo_finalizacao": "3 anos"
+    },
+    {
+      "nome": "FIGUEIRA",
+      "melhor_regiao": "Sul",
+      "clima": "Temperado",
+      "tempo_finalizacao": "4 anos"
+    }
+  ]
+}

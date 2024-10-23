@@ -1,5 +1,6 @@
 package AgroApp_BackEnd.fornecedores.dao;
 
+import AgroApp_BackEnd.Repository.entity.FornecedoresEntity;
 import AgroApp_BackEnd.Repository.entity.FornecedoresPFEntity;
 import AgroApp_BackEnd.Repository.entity.FornecedoresPJEntity;
 
@@ -13,5 +14,9 @@ public interface FornecedoresDAO {
 
     Optional<FornecedoresPJEntity> findByCnpj(String cnpj);
 
-    Optional<FornecedoresPFEntity> findByCpf(String cpf);
+    Optional<FornecedoresPFEntity> findByTelefone(String telefone);
+
+    FornecedoresEntity findByIdPessoaFisica(String idPessoaFisisca);
+
+    FornecedoresEntity findByIdPessoaJuridica(String cnpj);
 }

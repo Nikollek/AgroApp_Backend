@@ -2,6 +2,8 @@ package AgroApp_BackEnd.fornecedores.dao;
 
 import AgroApp_BackEnd.Repository.FornecedoresPFRepository;
 import AgroApp_BackEnd.Repository.FornecedoresPJRepository;
+import AgroApp_BackEnd.Repository.FornecedoresRepository;
+import AgroApp_BackEnd.Repository.entity.FornecedoresEntity;
 import AgroApp_BackEnd.Repository.entity.FornecedoresPFEntity;
 import AgroApp_BackEnd.Repository.entity.FornecedoresPJEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ public class JPAFornecedoresDAO implements FornecedoresDAO{
 
     @Autowired
     FornecedoresPFRepository pfRepository;
+
+    @Autowired
+    FornecedoresRepository fornecedoresRepository;
 
     @Override
     public void save(FornecedoresPJEntity fornecedoresPJEntity) {
@@ -34,7 +39,17 @@ public class JPAFornecedoresDAO implements FornecedoresDAO{
     }
 
     @Override
-    public Optional<FornecedoresPFEntity> findByCpf(String cpf) {
-        return pfRepository.findByCpf(cpf);
+    public Optional<FornecedoresPFEntity> findByTelefone(String telefone) {
+        return pfRepository.findByTelefone(telefone);
+    }
+
+    @Override
+    public FornecedoresEntity findByIdPessoaFisica(String idPessoaFisisca) {
+        return fornecedoresRepository.findByIdPessoaFisica(idPessoaFisisca);
+    }
+
+    @Override
+    public FornecedoresEntity findByIdPessoaJuridica(String cnpj) {
+        return fornecedoresRepository.findByIdPessoaJuridica(cnpj);
     }
 }

@@ -66,6 +66,16 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>6.2.7.Final</version>
 		</dependency>
+		<dependency>
+			<groupId>org.tensorflow</groupId>
+			<artifactId>tensorflow</artifactId>
+			<version>1.15.0</version> <!-- Verifique a versão mais recente -->
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20210307</version>
+		</dependency>
 
 	</dependencies>
 
