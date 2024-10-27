@@ -2,11 +2,13 @@ package AgroApp_BackEnd.Repository.entity;
 
 import AgroApp_BackEnd.integracao.openIA.dto.saida.InformacaoAlimento;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Table(name = "Plantacao")

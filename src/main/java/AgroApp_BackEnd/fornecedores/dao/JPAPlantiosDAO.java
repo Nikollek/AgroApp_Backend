@@ -19,4 +19,9 @@ public class JPAPlantiosDAO implements PlantiosDAO {
         return plantiosRepository.findAll();
     }
 
+    @Override
+    public List<PlantiosEntity> retornaListaPlantiosComId(List<Long> idPlantio) {
+        return plantiosRepository.findAllById(idPlantio);
+    }
+
 }

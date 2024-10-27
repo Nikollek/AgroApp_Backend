@@ -7,4 +7,6 @@ import java.util.List;
 public interface PlantiosDAO {
 
     List<PlantiosEntity> retornaListaPlantios();
+
+    List<PlantiosEntity> retornaListaPlantiosComId(List<Long> idPlantio);
 }

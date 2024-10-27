@@ -18,8 +18,12 @@ public class JPAClientesDAO implements ClienteDAO {
         repository.save(clientesEntity);
     }
 
+    public Optional<ClientesEntity> findByEmailCliente(String email) {
+        return repository.findByEmailCliente(email);
+    }
+
     @Override
-    public Optional<ClientesEntity> findByEmailClienteAndSenhaCliente(String email, String senha) {
-        return repository.findByEmailClienteAndSenhaCliente(email, senha);
+    public Optional<ClientesEntity> findByEmailClienteAndSenhaUsuario(String emailUsuario, String senhaCliente) {
+        return repository.findByEmailClienteAndSenhaCliente(emailUsuario, senhaCliente);
     }
 }

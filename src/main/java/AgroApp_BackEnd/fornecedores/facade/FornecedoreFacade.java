@@ -120,7 +120,7 @@ public class FornecedoreFacade {
 
     public List<String> deveRetornarFornecimentos() {
         //recupera todos os tipos de plantacao do banco
-        List<PlantiosEntity> plantios = fornecedorService.retornaPlantios();
+        List<PlantiosEntity> plantios = fornecedorService.retornaPlantios(null);
 
         //obtem do banco de dados apena os nomes
         return plantios.stream()

@@ -57,7 +57,14 @@ public class FornecedorService {
         jpaPlantacaoDAO.save(plantacaoEntity);
     }
 
-    public List<PlantiosEntity> retornaPlantios (){
+    public void salvarPlantacao(List<PlantacaoEntity> plantacaoEntity) {
+        plantacaoEntity.forEach(jpaPlantacaoDAO::save);
+    }
+    public List<PlantiosEntity> retornaPlantios (List<Long> idPlantio){
+       // se o id plantios não for nulo então flitra os plantios pelo Id
+        if (idPlantio != null){
+            return jpaPlantiosDAO.retornaListaPlantiosComId(idPlantio);
+        }
         //se não existir ele retorna todos os dados na tabela
         return jpaPlantiosDAO.retornaListaPlantios();
     }

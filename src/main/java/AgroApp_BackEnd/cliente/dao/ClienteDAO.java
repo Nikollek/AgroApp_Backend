@@ -8,6 +8,7 @@ public interface ClienteDAO {
 
     void save(ClientesEntity clientesEntity);
 
-    Optional<ClientesEntity> findByEmailClienteAndSenhaCliente(String email, String senha);
+    Optional<ClientesEntity> findByEmailCliente(String email);
 
+    Optional<ClientesEntity> findByEmailClienteAndSenhaUsuario(String emailUsuario, String senhaUsuario);
 }
