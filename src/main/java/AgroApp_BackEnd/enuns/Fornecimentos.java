@@ -81,4 +81,14 @@ public enum Fornecimentos {
     public int getCodigo() {
         return codigo;
     }
+
+    //Método estático para obter o enum pelo código
+    public static Fornecimentos fromCodigo(Long codigo){
+        for(Fornecimentos fornecimentos : values()){
+            if (fornecimentos.getCodigo() == codigo){
+                return fornecimentos;
+            }
+        }
+        throw new IllegalArgumentException("Código de fornecimento inválido: " + codigo);
+    }
 }

@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface PlantacaoRepository extends JpaRepository<PlantacaoEntity, Long> {
     List<PlantacaoEntity> findAllByFinalizadoAndIdVenda(Boolean finalizado, Long idVenda);
+
+    List<PlantacaoEntity> findAllByIdVendaIsNotNull();
 }

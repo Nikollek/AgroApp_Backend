@@ -1,4 +1,4 @@
-package AgroApp_BackEnd.vendas.dto.entrada;
+package AgroApp_BackEnd.plantacoes.dto.entrada;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -8,10 +8,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class AlimentosDisponiveis {
+public class PlantacoesProntas {
 
     private Long idPlantacao;
-    private String nomeAlimento;
-    private Double valorAlimento;
 
+    private Double valorFinal;
 }

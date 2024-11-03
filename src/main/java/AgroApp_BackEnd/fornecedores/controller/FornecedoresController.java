@@ -2,6 +2,7 @@ package AgroApp_BackEnd.fornecedores.controller;
 
 import AgroApp_BackEnd.fornecedores.dto.entrada.FornecedoresPFEntrada;
 import AgroApp_BackEnd.fornecedores.dto.entrada.FornecedoresPJEntrada;
+import AgroApp_BackEnd.fornecedores.dto.saida.FornecedoresCadastrados;
 import AgroApp_BackEnd.fornecedores.facade.FornecedoreFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,11 @@ public class FornecedoresController {
     public ResponseEntity<String> cadastroFornecedoresPF (@RequestBody FornecedoresPFEntrada fornecedoresPFEntrada){
         fornecedoresFacade.deveSalvarNovoFornecedeorEPlantio(fornecedoresPFEntrada);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/cadastrados")
+    public List<FornecedoresCadastrados> retornaFornecedoresCadastrados (){
+        return fornecedoresFacade.deveRetornarTodosFornecedoresCadastrados();
     }
 
     @GetMapping("/fornecimentos-disponiveis")

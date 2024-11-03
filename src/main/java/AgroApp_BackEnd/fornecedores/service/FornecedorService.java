@@ -4,8 +4,6 @@ import AgroApp_BackEnd.Repository.entity.*;
 import AgroApp_BackEnd.fornecedores.dao.JPAFornecedoresDAO;
 import AgroApp_BackEnd.fornecedores.dao.JPAPlantacaoDAO;
 import AgroApp_BackEnd.fornecedores.dao.JPAPlantiosDAO;
-import AgroApp_BackEnd.fornecedores.dto.entrada.FornecedoresPFEntrada;
-import AgroApp_BackEnd.fornecedores.dto.entrada.FornecedoresPJEntrada;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,15 +23,15 @@ public class FornecedorService {
     @Autowired
     private JPAPlantacaoDAO jpaPlantacaoDAO;
 
-    public Optional<FornecedoresPFEntity> retornaFornecedor(FornecedoresPFEntrada fornecedoresPFEntrada){
+    public Optional<FornecedoresPFEntity> retornaFornecedorPF(String telefone){
         //busca se o fornecedor PF existe no banco de dados
-        return jpaFornecedoresDAO.findByTelefone(fornecedoresPFEntrada.getTelefone());
+        return jpaFornecedoresDAO.findByTelefone(telefone);
     }
 
 
-    public Optional<FornecedoresPJEntity> retornaFornecedor(FornecedoresPJEntrada fornecedoresPJEntrada){
+    public Optional<FornecedoresPJEntity> retornaFornecedorPJ(String cnpj){
         //busca se o fornecedor PJ ja existe no banco de dados
-        return jpaFornecedoresDAO.findByCnpj(fornecedoresPJEntrada.getCnpj());
+        return jpaFornecedoresDAO.findByCnpj(cnpj);
     }
 
     public FornecedoresEntity retornaFornecedor(FornecedoresPFEntity fornecedoresPFEntity){
@@ -44,6 +42,10 @@ public class FornecedorService {
     public FornecedoresEntity retornaFornecedor(FornecedoresPJEntity fornecedoresPJEntity){
         //busca entidade fornecedor PJ
         return jpaFornecedoresDAO.findByIdPessoaJuridica(fornecedoresPJEntity.getCnpj());
+    }
+
+    public List<FornecedoresEntity> retornaFornecedores(){
+       return jpaFornecedoresDAO.findAll();
     }
 
     //salvar entidade fornecedor PF

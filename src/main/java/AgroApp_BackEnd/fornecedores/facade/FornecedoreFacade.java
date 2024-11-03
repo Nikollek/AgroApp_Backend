@@ -3,6 +3,7 @@ package AgroApp_BackEnd.fornecedores.facade;
 import AgroApp_BackEnd.Repository.entity.*;
 import AgroApp_BackEnd.fornecedores.dto.entrada.FornecedoresPFEntrada;
 import AgroApp_BackEnd.fornecedores.dto.entrada.FornecedoresPJEntrada;
+import AgroApp_BackEnd.fornecedores.dto.saida.FornecedoresCadastrados;
 import AgroApp_BackEnd.fornecedores.service.FornecedorService;
 import AgroApp_BackEnd.integracao.openIA.OpenAIService;
 import AgroApp_BackEnd.integracao.openIA.dto.saida.InformacaoAlimento;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -28,7 +30,7 @@ public class FornecedoreFacade {
     public void deveSalvarNovoFornecedeorEPlantio(FornecedoresPFEntrada fornecedoresPFEntrada) {
 
         //busca se o fornecedor PF ja existe no banco de dados
-        Optional<FornecedoresPFEntity> fornecedoresPFEntity = fornecedorService.retornaFornecedor(fornecedoresPFEntrada);
+        Optional<FornecedoresPFEntity> fornecedoresPFEntity = fornecedorService.retornaFornecedorPF(fornecedoresPFEntrada.getTelefone());
 
         //caso exista é enviado ao controller a mensagem
         if(fornecedoresPFEntity.isPresent()){
@@ -54,7 +56,7 @@ public class FornecedoreFacade {
 
 
     public void deveSalvarNovoFornecedeorEPlantio(FornecedoresPJEntrada fornecedoresPJEntrada) {
-        Optional<FornecedoresPJEntity> fornecedoresPJEntity = fornecedorService.retornaFornecedor(fornecedoresPJEntrada);
+        Optional<FornecedoresPJEntity> fornecedoresPJEntity = fornecedorService.retornaFornecedorPJ(fornecedoresPJEntrada.getCnpj());
 
         if(fornecedoresPJEntity.isPresent()){
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Fornecedor já existe.");
@@ -113,9 +115,18 @@ public class FornecedoreFacade {
         idFornecedor = fornecedoresEntity.getIdFornecedor();
 
         //mapear entidade plantação
-        PlantacaoEntity plantacaoEntity = new PlantacaoEntity(informacaoAlimento, codigoFornecimento, idFornecedor, quantidade);
+        PlantacaoEntity plantacaoEntity = new PlantacaoEntity(informacaoAlimento, codigoFornecimento, idFornecedor);
         //salvar novo registro de plantacao
         fornecedorService.salvarPlantacao(plantacaoEntity);
+
+        //se a quantidade definida pelo fornecedor for maior que 1, então é feito uma duplicata da mesmo tipo de plantação
+        if(quantidade > 1){
+            for(int i = 1; i < quantidade; i++){
+                PlantacaoEntity duplicataPlantacaoEntity = new PlantacaoEntity(informacaoAlimento, codigoFornecimento, idFornecedor);
+                fornecedorService.salvarPlantacao(duplicataPlantacaoEntity);
+            }
+        }
+
     }
 
     public List<String> deveRetornarFornecimentos() {
@@ -127,4 +138,48 @@ public class FornecedoreFacade {
                 .map(p -> p.getDescricao().trim())
                 .collect(Collectors.toList());
     }
+
+    public List<FornecedoresCadastrados> deveRetornarTodosFornecedoresCadastrados() {
+        // Busca todos os fornecedores
+        List<FornecedoresEntity> fornecedoresEntities = fornecedorService.retornaFornecedores();
+
+        // Processa cada FornecedoresEntity
+        return fornecedoresEntities.stream()
+                // Mapeia cada FornecedoresEntity para FornecedoresCadastrados com base no tipo de pessoa
+                .map(fornecedoresEntity -> {
+                    // Se o tipo de pessoa for "J" (jurídica)
+                    if ("J".equals(fornecedoresEntity.getTipoPessoa())) {
+                        // Obtém os detalhes do fornecedor jurídico a partir do serviço
+                        Optional<FornecedoresPJEntity> pjEntity = fornecedorService
+                                .retornaFornecedorPJ(fornecedoresEntity.getIdPessoaJuridica());
+
+                        // Mapeia os detalhes do fornecedor jurídico para FornecedoresCadastrados, se presente
+                        return pjEntity.map(juridico -> new FornecedoresCadastrados(
+                                fornecedoresEntity.getTipoPessoa(),
+                                juridico.getNomeFantasia().trim(),
+                                juridico.getTelefone().trim())
+                        ).orElse(null);
+                    }
+                    // Se o tipo de pessoa for "F" (física)
+                    else if ("F".equals(fornecedoresEntity.getTipoPessoa())) {
+                        // Obtém os detalhes do fornecedor físico a partir do serviço
+                        Optional<FornecedoresPFEntity> pfEntity = fornecedorService
+                                .retornaFornecedorPF(fornecedoresEntity.getIdPessoaFisica());
+
+                        // Mapeia os detalhes do fornecedor físico para FornecedoresCadastrados, se presente
+                        return pfEntity.map(fisico -> new FornecedoresCadastrados(
+                                fornecedoresEntity.getTipoPessoa(),
+                                fisico.getNome().trim(),
+                                fisico.getTelefone().trim())
+                        ).orElse(null);
+                    }
+                    // Retorna null se o tipo de pessoa não for "J" nem "F"
+                    return null;
+                })
+                // Remove os valores nulos do stream
+                .filter(Objects::nonNull)
+                // Coleta os resultados finais em uma lista
+                .collect(Collectors.toList());
+    }
+
 }

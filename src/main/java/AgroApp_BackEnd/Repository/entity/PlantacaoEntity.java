@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -35,11 +37,11 @@ public class PlantacaoEntity {
     @Column(name = "valor_final")
     private Double valorFinal;
 
-    @Column(name = "quantidade")
-    private Long quantidade;
-
     @Column(name = "finalizado")
     private Boolean finalizado;
+
+    @Column(name = "data_cadastro")
+    private LocalDateTime dataCadastro;
 
     @Column(name = "tempo_finalizacao")
     private String tempoFinalizacao;
@@ -47,13 +49,26 @@ public class PlantacaoEntity {
     @Column(name = "id_venda")
     private Long idVenda;
 
-    public PlantacaoEntity(InformacaoAlimento informacaoAlimento, Long idPlantios, Integer idFornecedor, Long quantidade) {
+    public PlantacaoEntity(InformacaoAlimento informacaoAlimento, Long idPlantios, Integer idFornecedor) {
         this.melhorRegiao = informacaoAlimento.getMelhorRegiao();
         this.melhorClima = informacaoAlimento.getClima();
         this.idFornecedor = idFornecedor;
         this.idPlantios = idPlantios;
-        this.quantidade = quantidade;
         this.finalizado = Boolean.FALSE;
         this.tempoFinalizacao = informacaoAlimento.getTempoFinalizacao();
+        this.dataCadastro = LocalDateTime.now();
     }
+
+    // Construtor de cópia
+    public PlantacaoEntity(PlantacaoEntity entity) {
+        this.id = entity.getId();
+        this.melhorRegiao = entity.getMelhorRegiao();
+        this.melhorClima = entity.getMelhorClima();
+        this.idFornecedor = entity.getIdFornecedor();
+        this.idPlantios = entity.getIdPlantios();
+        this.dataCadastro = entity.getDataCadastro();
+        this.tempoFinalizacao = entity.getTempoFinalizacao();
+        this.idVenda = entity.getIdVenda();
+    }
+
 }
